@@ -18,12 +18,7 @@ class Snake(Turtle):
     def criando_a_cobra(self):
         # Criando a cobra
         for posicao in self.posicao_inicial:
-            segmento = Turtle("square")
-            segmento.color("white")
-            segmento.penup()
-            segmento.goto(posicao)
-
-            self.corpo_da_cobra.append(segmento)
+            self.adiciona_segmento(posicao)
 
     def movendo(self):
         # Movimentação da cobra
@@ -32,6 +27,17 @@ class Snake(Turtle):
             novo_y = self.corpo_da_cobra[seg_num - 1].ycor()
             self.corpo_da_cobra[seg_num].goto(novo_x, novo_y)
         self.cabeca.forward(DISTANCIA_QUE_SE_MOVE)
+
+    def extend(self):
+        self.adiciona_segmento(self.corpo_da_cobra[-1].position())
+
+    def adiciona_segmento(self, posicao):
+        segmento = Turtle("square")
+        segmento.color("white")
+        segmento.penup()
+        segmento.goto(posicao)
+
+        self.corpo_da_cobra.append(segmento)
 
     def up(self):
         if self.cabeca.heading() != DOWN:
