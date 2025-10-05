@@ -7,6 +7,7 @@ DOWN = 270
 LEFT = 180
 RIGHT = 0
 
+
 class Snake(Turtle):
     def __init__(self) -> None:
         # Posição inicial dos quadrados
@@ -54,3 +55,11 @@ class Snake(Turtle):
     def right(self):
         if self.cabeca.heading() != LEFT:
             self.cabeca.setheading(RIGHT)
+
+    def reset(self):
+        for seg in self.corpo_da_cobra:
+            seg.goto(1000, 1000)
+        self.posicao_inicial = POSICAO_INICIAL
+        self.corpo_da_cobra = []
+        self.criando_a_cobra()
+        self.cabeca = self.corpo_da_cobra[0]

@@ -37,14 +37,19 @@ while ligado:
         cobra.extend()
 
     # Detectar se bateu na parede
-    if cobra.cabeca.xcor() > 280 or cobra.cabeca.xcor() < -280 or cobra.cabeca.ycor() >  280 or cobra.cabeca.ycor() < -280:
-        ligado = False
-        pontuacao.game_over()
+    if (
+        cobra.cabeca.xcor() > 280
+        or cobra.cabeca.xcor() < -280
+        or cobra.cabeca.ycor() > 280
+        or cobra.cabeca.ycor() < -280
+    ):
+        pontuacao.reset()
+        cobra.reset()
 
     # Detectar se bateu no rabo
     for segmento in cobra.corpo_da_cobra[1:]:
         if cobra.cabeca.distance(segmento) < 10:
-            ligado = False
-            pontuacao.game_over()
+            pontuacao.reset()
+            cobra.reset()
 
 tela.exitonclick()
