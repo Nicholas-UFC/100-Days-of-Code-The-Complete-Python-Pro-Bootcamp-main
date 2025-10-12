@@ -30,8 +30,13 @@ df = pandas.read_csv(r"Day_26\nato_phonetic_alphabet.csv")
 
 nato = {row["letter"]: row["code"] for (index, row) in df.iterrows()}
 
-nome = str(input("Digite seu nome: "))
-nome = nome.upper()
-
-nome_em_nato = [nato[letra] for letra in nome]
-print(nome_em_nato)
+ligado = True
+while ligado:
+    nome = str(input("Digite seu nome: "))
+    nome = nome.upper()
+    try:
+        nome_em_nato = [nato[letra] for letra in nome]
+        print(nome_em_nato)
+        ligado = False
+    except:
+        print("Desculpa, apenas letras do alphabeta.")

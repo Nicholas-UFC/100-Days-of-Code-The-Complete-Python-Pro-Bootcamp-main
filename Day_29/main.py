@@ -1,6 +1,9 @@
+import json
 import random
 import tkinter
 from tkinter import messagebox
+
+from arquivos import letras
 
 # ---------------------------- CONSTANTS ------------------------------- #
 FONTE = "Arial"
@@ -8,79 +11,6 @@ FONTE = "Arial"
 
 # ---------------------------- PASSWORD GENERATOR ------------------------------- #
 def gerar_senha():
-    letras = [
-        "a",
-        "b",
-        "c",
-        "d",
-        "e",
-        "f",
-        "g",
-        "h",
-        "i",
-        "j",
-        "k",
-        "l",
-        "m",
-        "n",
-        "o",
-        "p",
-        "q",
-        "r",
-        "s",
-        "t",
-        "u",
-        "v",
-        "w",
-        "x",
-        "y",
-        "z",
-        "A",
-        "B",
-        "C",
-        "D",
-        "E",
-        "F",
-        "G",
-        "H",
-        "I",
-        "J",
-        "K",
-        "L",
-        "M",
-        "N",
-        "O",
-        "P",
-        "Q",
-        "R",
-        "S",
-        "T",
-        "U",
-        "V",
-        "W",
-        "X",
-        "Y",
-        "Z",
-        "0",
-        "1",
-        "2",
-        "3",
-        "4",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "!",
-        "#",
-        "$",
-        "%",
-        "&",
-        "(",
-        ")",
-        "*",
-        "+",
-    ]
 
     password = "".join(random.choice(letras) for i in range(16))
 
@@ -93,6 +23,12 @@ def add():
     ws = site_input.get()
     nu = email_input.get()
     pw = senha_input.get()
+    new_data = {
+        ws: {
+            "email": nu,
+            "senha": pw,
+        }
+    }
 
     if len(ws) == 0 or len(pw) == 0 or len(nu) == 0:
         messagebox.showinfo(
@@ -100,17 +36,35 @@ def add():
         )
 
     else:
-        pode = messagebox.askokcancel(
-            title="Site",
-            message=f"Você está tentando salvar: \nSite: {ws} \nEmail: {nu} \nSenha: {pw} \nPosso salvar? ",
-        )
+        try:
+            with open(r"Day_29\senhas.json", mode="r") as data_file:
+                data = json.load(data_file)
+                data.update(new_data)
 
-        if pode:
-            with open(r"Day_29\senhas.txt", mode="a") as file:
-                file.write(f"Site: {ws} | Email/Usuario: {nu} | Senha: {pw}\n")
-                site_input.delete(0, tkinter.END)
-                email_input.delete(0, tkinter.END)
-                senha_input.delete(0, tkinter.END)
+        except FileNotFoundError:
+            with open(r"Day_29\senhas.json", mode="w") as data_file:
+                json.dump(new_data, data_file, indent=4)
+
+        else:
+            with open(r"Day_29\senhas.json", mode="w") as data_file:
+                json.dump(data, data_file, indent=4)
+
+        finally:
+            site_input.delete(0, tkinter.END)
+            email_input.delete(0, tkinter.END)
+            senha_input.delete(0, tkinter.END)
+
+
+# ---------------------------- SEARCH ------------------------------- #
+def search():
+    with open(r"Day_29\senhas.json", mode="r") as data_file:
+        data = json.load(data_file)
+        ws = site_input.get()
+
+        email_input.delete(0, tkinter.END)
+        senha_input.delete(0, tkinter.END)
+        email_input.insert(0, data[ws]["email"])
+        senha_input.insert(0, data[ws]["senha"])
 
 
 # ---------------------------- UI SETUP ------------------------------- #
@@ -141,9 +95,12 @@ gerar.grid(row=3, column=2, sticky="w")
 adicionar = tkinter.Button(text="Adicionar", command=add, width=36)
 adicionar.grid(row=4, column=1, columnspan=2, sticky="w")
 
+pesquisar = tkinter.Button(text="Pesquisa", command=search)
+pesquisar.grid(row=1, column=2, sticky="w")
+
 # Entry: Site, email, senha
-site_input = tkinter.Entry(width=35)
-site_input.grid(row=1, column=1, columnspan=2, sticky="w")
+site_input = tkinter.Entry(width=21)
+site_input.grid(row=1, column=1, sticky="we")
 site_input.focus()
 
 email_input = tkinter.Entry(width=35)
