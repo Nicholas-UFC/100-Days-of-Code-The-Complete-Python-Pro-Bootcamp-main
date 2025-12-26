@@ -1,5 +1,6 @@
 import random
-from baralho import lista_de_cartas, numeros, nobres
+
+from baralho import lista_de_cartas, nobres, numeros
 
 
 # Função para puxar carte do baralho sem puxar carta repetida
@@ -75,9 +76,13 @@ while nova_carta:
         if valor_do_jogador_1 > 21:
             nova_carta = False
             acabou_o_jogo = True
-            print(f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você perdeu!")
+            print(
+                f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você perdeu!"
+            )
         elif valor_do_jogador_1 == 21:
-            print(f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você venceu!")
+            print(
+                f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você venceu!"
+            )
             nova_carta = False
             acabou_o_jogo = True
         else:
@@ -102,9 +107,13 @@ while nova_carta and not acabou_o_jogo:
         valor_da_maquina = contar(valor_da_maquina, lista_de_cartas[carta_tirada])
 
     if valor_da_maquina == 21:
-        print(f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você perdeu!")
+        print(
+            f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você perdeu!"
+        )
         nova_carta = False
 
     if valor_da_maquina > 21:
-        print(f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você venceu!")
+        print(
+            f"Sua mão tem valor {valor_do_jogador_1} e a mão da maquina tem valor {valor_da_maquina}, você venceu!"
+        )
         nova_carta = False

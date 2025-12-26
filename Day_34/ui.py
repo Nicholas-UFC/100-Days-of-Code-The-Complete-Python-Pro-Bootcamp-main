@@ -1,6 +1,6 @@
 import tkinter
-from quiz_brain import QuizBrain
 
+from quiz_brain import QuizBrain
 
 THEME_COLOR = "#375362"
 FONT = ("Arial", 20, "italic")
@@ -26,11 +26,15 @@ class QuizInterface:
         self.canvas.grid(row=1, column=0, columnspan=2, pady=50)
 
         imagem_sim = tkinter.PhotoImage(file=r"Day_34\images\true.png")
-        self.butao_verdadeiro = tkinter.Button(image=imagem_sim, highlightthickness=0, command=self.pressionou_verdade)
+        self.butao_verdadeiro = tkinter.Button(
+            image=imagem_sim, highlightthickness=0, command=self.pressionou_verdade
+        )
         self.butao_verdadeiro.grid(row=2, column=0)
 
         imagem_nao = tkinter.PhotoImage(file=r"Day_34\images\false.png")
-        self.butao_falso = tkinter.Button(image=imagem_nao, highlightthickness=0, command=self.pressionou_falso)
+        self.butao_falso = tkinter.Button(
+            image=imagem_nao, highlightthickness=0, command=self.pressionou_falso
+        )
         self.butao_falso.grid(row=2, column=1)
 
         self.get_next_question()
@@ -44,7 +48,9 @@ class QuizInterface:
             q_text = self.quiz.next_question()
             self.canvas.itemconfig(self.question_text, text=q_text)
         else:
-            self.canvas.itemconfig(self.question_text, text="Você já respondeu a todas as perguntas")
+            self.canvas.itemconfig(
+                self.question_text, text="Você já respondeu a todas as perguntas"
+            )
             self.butao_verdadeiro.config(state="disabled")
             self.butao_falso.config(state="disabled")
 

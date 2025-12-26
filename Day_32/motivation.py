@@ -1,6 +1,6 @@
-import smtplib
 import datetime as dt
 import random
+import smtplib
 
 EMAIL = "email"
 SENHA = "senha"
@@ -16,4 +16,8 @@ if weekday == 0:
     with smtplib.SMTP("smtp.gmail.com") as connection:
         connection.starttls()
         connection.login(EMAIL, SENHA)
-        connection.sendmail(from_addr=EMAIL,to_addrs="bryan_nicholas_fm@outlook.com", msg=f"Subject:Monday Motivation\n\n{dica}")
+        connection.sendmail(
+            from_addr=EMAIL,
+            to_addrs="bryan_nicholas_fm@outlook.com",
+            msg=f"Subject:Monday Motivation\n\n{dica}",
+        )

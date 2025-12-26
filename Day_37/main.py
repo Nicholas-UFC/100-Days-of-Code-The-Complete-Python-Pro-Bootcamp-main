@@ -1,5 +1,6 @@
-import requests
 from datetime import datetime
+
+import requests
 
 TOKEN = "meutokensecreto12345"
 USERNAME = "bryan12345678910"
@@ -45,9 +46,7 @@ pixel_data = {
 
 update_endpoint = f"{pixela_endpoint}/{USERNAME}/graphs/{ID}/{today.strftime("%Y%m%d")}"
 
-new_pixel_data = {
-    "quantity": "4.5"
-}
+new_pixel_data = {"quantity": "4.5"}
 
 # response = requests.put(url=update_endpoint, json=new_pixel_data, headers=headers)
 

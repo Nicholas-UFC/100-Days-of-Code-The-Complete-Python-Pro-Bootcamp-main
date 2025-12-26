@@ -16,5 +16,6 @@ class Carro:
         self.colour = kw.get("colour")
         self.seats = kw.get("seats")
 
+
 meu_carro = Carro(make="Toyota", model="Corolla")
 print(meu_carro.model)

@@ -1,11 +1,14 @@
-from turtle import Turtle, Screen
 import random
 import time
+from turtle import Screen, Turtle
 
 tela = Screen()
 
 tela.setup(width=500, height=400)
-aposta = tela.textinput(title="Faça suas apostas", prompt="Qual a cor da tartaruga que vai vencer a corrida? Digite uma cor primaria em ingles e sem errar!: ")
+aposta = tela.textinput(
+    title="Faça suas apostas",
+    prompt="Qual a cor da tartaruga que vai vencer a corrida? Digite uma cor primaria em ingles e sem errar!: ",
+)
 
 # Criando as tartarugas
 joao = Turtle(shape="turtle")
@@ -22,6 +25,7 @@ maria.penup()
 joao.goto(-200, -100)
 pedro.goto(-200, 0)
 maria.goto(-200, 100)
+
 
 # Função para a corrida
 def corrida(aposta):
@@ -49,7 +53,7 @@ def corrida(aposta):
                 print("Você venceu a aposta!")
             else:
                 print("Você perdeu a aposta!")
-            
+
             jogo = False
 
         elif distancia_pedro >= 400:
@@ -70,8 +74,9 @@ def corrida(aposta):
             else:
                 print("Você perdeu a aposta!")
             vencedor = "blue"
-        
+
             jogo = False
+
 
 corrida(aposta)
 tela.exitonclick()

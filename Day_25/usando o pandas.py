@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 dataframe = pd.read_csv(r"Day_25\weather_data.csv")
 
 # print(dataframe["temp"])
@@ -15,6 +14,6 @@ dataframe = pd.read_csv(r"Day_25\weather_data.csv")
 
 # print(dataframe["temp"].max())
 
-lista = [ i for i,valor in enumerate(dataframe["day"] == "Monday") if valor]
+lista = [i for i, valor in enumerate(dataframe["day"] == "Monday") if valor]
 
 print(dataframe.iloc[lista])

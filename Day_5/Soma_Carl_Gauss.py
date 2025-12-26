@@ -1,4 +1,4 @@
-#Soma de todos os numeros de 0 a 100.
+# Soma de todos os numeros de 0 a 100.
 
 Total = 0
 

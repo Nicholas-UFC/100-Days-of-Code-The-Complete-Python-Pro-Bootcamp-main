@@ -1,5 +1,33 @@
-alphabet = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"]
+alphabet = [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+    "f",
+    "g",
+    "h",
+    "i",
+    "j",
+    "k",
+    "l",
+    "m",
+    "n",
+    "o",
+    "p",
+    "q",
+    "r",
+    "s",
+    "t",
+    "u",
+    "v",
+    "w",
+    "x",
+    "y",
+    "z",
+]
 run = "sim"
+
 
 def caesar(original_text, shift_amount, encode_or_decode):
     cipher_text = ""
@@ -13,7 +41,7 @@ def caesar(original_text, shift_amount, encode_or_decode):
                 shift_position = alphabet.index(letter) + shift_amount
             else:
                 shift_position = alphabet.index(letter) - shift_amount
-        
+
             if shift_position > 26:
                 shift_position = shift_position % 26
 
@@ -22,9 +50,8 @@ def caesar(original_text, shift_amount, encode_or_decode):
     print(cipher_text)
 
 
-
 while run == "sim":
-    direction = input ("Type 'encode' to encrypt, type 'decode' to decrypt: \n").lower()
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt: \n").lower()
     text = input("Type your message: \n").lower()
     shift = int(input("Type the shift number: \n"))
 

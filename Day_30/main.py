@@ -22,5 +22,5 @@ peso = int(input("Seu peso: "))
 if altura > 3:
     raise ValueError("Um ser humano não tem como ter mais de 3 metros de altura.")
 
-bmi = peso / altura ** 2
+bmi = peso / altura**2
 print(f"BMI: {bmi}")

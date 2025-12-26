@@ -8,7 +8,7 @@ API_KEY = "SUA_API_KEY"
 ACCOUNT_SID = "SEU_ACCOUNT_SID"
 AUTH_TOKEN = "SEU_AUTH_TOKEN"
 NUMERO_TWILIO = "whatsapp:+14155238886"  # número do sandbox Twilio WhatsApp
-NUMERO = "whatsapp:+55SEUNUMERO"         # seu número (ex: whatsapp:+5585987654321)
+NUMERO = "whatsapp:+55SEUNUMERO"  # seu número (ex: whatsapp:+5585987654321)
 
 # Coordenadas (exemplo: Fortaleza)
 weather_params = {
@@ -38,10 +38,6 @@ if will_rain:
 else:
     body_msg = "🌤️ Sem chuva prevista nas próximas horas em Fortaleza!"
 
-message = client.messages.create(
-    body=body_msg,
-    from_=NUMERO_TWILIO,
-    to=NUMERO
-)
+message = client.messages.create(body=body_msg, from_=NUMERO_TWILIO, to=NUMERO)
 
 print("Mensagem enviada com status:", message.status)

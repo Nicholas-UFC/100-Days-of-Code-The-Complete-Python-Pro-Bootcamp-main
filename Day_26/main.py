@@ -25,7 +25,6 @@ for index, row in student_data_frame.iterrows():
 
 import pandas
 
-
 df = pandas.read_csv(r"Day_26\nato_phonetic_alphabet.csv")
 
 nato = {row["letter"]: row["code"] for (index, row) in df.iterrows()}

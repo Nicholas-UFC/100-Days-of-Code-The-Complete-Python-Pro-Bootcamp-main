@@ -1,9 +1,9 @@
+import time
 from turtle import Screen
+
+from bola import Bola
 from jogador import Jogador
 from score import Score
-from bola import Bola
-import time
-
 
 # Configurando a tela
 tela = Screen()
@@ -38,8 +38,13 @@ while ligado:
     # detectar colicao com o muro
     if bola.ycor() > 200 or bola.ycor() < -200:
         bola.colicao_y()
-    
-    if bola.distance(jogador_1) < 50 and bola.xcor() < -340 or bola.distance(jogador_2) < 50 and bola.xcor() > 340:
+
+    if (
+        bola.distance(jogador_1) < 50
+        and bola.xcor() < -340
+        or bola.distance(jogador_2) < 50
+        and bola.xcor() > 340
+    ):
         bola.colicao_x()
 
     # dectando a pontuacao

@@ -1,7 +1,8 @@
 import time
 from turtle import Screen
-from player import Player
+
 from car_manager import CarManager
+from player import Player
 from scoreboard import Scoreboard
 
 screen = Screen()
@@ -36,5 +37,5 @@ while game_is_on:
         controle_carro.level_up()
         score.level_up()
 
-        
+
 screen.exitonclick()

@@ -1,5 +1,5 @@
-from menu import MENU, recursos
 from funcoes import fazer_cafe, pedir_moedas
+from menu import MENU, recursos
 
 ligado = True
 

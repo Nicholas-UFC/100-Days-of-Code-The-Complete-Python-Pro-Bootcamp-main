@@ -1,6 +1,5 @@
 from turtle import Turtle
 
-
 joao = Turtle()
 
 for i in range(4):

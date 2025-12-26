@@ -1,6 +1,5 @@
-from turtle import Turtle
 import random
-
+from turtle import Turtle
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
 STARTING_MOVE_DISTANCE = 5
@@ -9,11 +8,11 @@ MOVE_INCREMENT = 10
 
 class CarManager(Turtle):
     def __init__(self):
-        self.all_cars=[]
+        self.all_cars = []
         self.car_speed = STARTING_MOVE_DISTANCE
 
     def create_car(self):
-        dado = random.randint(1,6)
+        dado = random.randint(1, 6)
         if dado == 1:
             novo_carro = Turtle("square")
             novo_carro.shapesize(stretch_wid=1, stretch_len=2)

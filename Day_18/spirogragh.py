@@ -1,6 +1,5 @@
 from turtle import Turtle
 
-
 joao = Turtle()
 joao.speed("fastest")
 

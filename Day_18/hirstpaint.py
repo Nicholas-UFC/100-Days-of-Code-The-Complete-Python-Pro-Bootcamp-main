@@ -1,8 +1,12 @@
-from  colorgram import extract
-from turtle import Turtle, Screen
 from random import choice
+from turtle import Screen, Turtle
 
-cores = extract(r"C:\Python\100-Days-of-Code-The-Complete-Python-Pro-Bootcamp-main\Day_18\images.jpg", 30)
+from colorgram import extract
+
+cores = extract(
+    r"C:\Python\100-Days-of-Code-The-Complete-Python-Pro-Bootcamp-main\Day_18\images.jpg",
+    30,
+)
 
 rgb_cores = []
 for cor in cores:

@@ -2,7 +2,6 @@ import random
 
 from lista import lista_de_pessoas
 
-
 # Declara as variaveis
 pontuacao = 0
 jogo = True

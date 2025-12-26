@@ -1,5 +1,4 @@
-from turtle import Turtle, Screen
-
+from turtle import Screen, Turtle
 
 # Criar objetos
 joao = Turtle()

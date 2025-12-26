@@ -1,5 +1,5 @@
-from turtle import Turtle
 import random
+from turtle import Turtle
 
 
 class Bola(Turtle):
@@ -26,4 +26,4 @@ class Bola(Turtle):
 
     def reset_posicao(self):
         self.move_speed = 0.1
-        self.goto(0,0)
+        self.goto(0, 0)

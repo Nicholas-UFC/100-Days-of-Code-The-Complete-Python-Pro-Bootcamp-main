@@ -1,9 +1,11 @@
-#Projeto que permite criar um jogo onde você e a maquina jogam pedra, papel e tesoura.
+# Projeto que permite criar um jogo onde você e a maquina jogam pedra, papel e tesoura.
 import random
 
-Player_1 = int(input("Qual você escolhe: 0 para Pedra, 1 para Tesoura e 2 para Papel: "))
+Player_1 = int(
+    input("Qual você escolhe: 0 para Pedra, 1 para Tesoura e 2 para Papel: ")
+)
 
-Player_2 = random.randint(0,2)
+Player_2 = random.randint(0, 2)
 
 if Player_1 == 0:
     if Player_2 == 0:
